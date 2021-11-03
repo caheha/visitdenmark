@@ -7,19 +7,155 @@
 }
 
 /* ------------------------------------
+                Fonts
+------------------------------------ */
+@font-face {
+    font-family: "VisitDenmark-Bold";
+    src: url(fonts/VisitDenmark-Bold.otf);
+}
+@font-face {
+    font-family: "VisitDenmark-ExtraBold";
+    src: url(fonts/VisitDenmark-ExtraBold.otf);
+}
+@font-face {
+    font-family: "VisitDenmark-Medium";
+    src: url(fonts/VisitDenmark-Medium.otf);
+}
+@font-face {
+    font-family: "VisitDenmark-Medium-Outline";
+    src: url(fonts/VisitDenmark-Outline-Medium.otf);
+}
+@font-face {
+    font-family: "VisitDenmark-Regular-Outline";
+    src: url(fonts/VisitDenmark-Outline-Regular.otf);
+}
+@font-face {
+    font-family: "VisitDenmark-Regular";
+    src: url(fonts/VisitDenmark-Regular.otf);
+}
+@font-face {
+    font-family: "VisitDenmark-SemiBold";
+    src: url(fonts/VisitDenmark-SemiBold.otf);
+}
+
+/* ------------------------------------
                 Theme
 ------------------------------------ */
 :root {
-    --theme: blue;
-    --theme-white: white;
-    --theme-black: black;
+    /* Primary colours */
+    --red: #E70013;
+    --blue: #022B52;
+    --grey01: #A1A8AD;
+    --grey02: #CED2D3;
+    --black: #000000;
+    --white: #FFFFFF;
+    --border-size: 2px;
+    --border-margin: 4px;
+}
+
+/*
+    border: var(--border-size) var(--red) solid;
+    margin: var(--border-margin);
+*/
+
+button {
+    min-width: 100px;
+    min-height: 33px;
+    background-color: var(--red);
+    padding: 1em;
+}
+
+body {
+    font-family: "VisitDenmark-Regular", sans-serif;
+}
+
+
+/*h1, h2, h3, h4, h5, h6 {
+
+}*/
+
+h1 {
+    font-size: 26px;
+    line-height: 31px;
+}
+
+h2 {
+    font-size: 22px;
+    line-height: 26px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 26px;
 }
 
 /* ------------------------------------
                 Header
 ------------------------------------ */
+.header {
+    background-color: var(--grey01);
+    display: flex;
+    justify-content: center;
+}
 
+.go-back {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+}
+
+.go-back span {
+    font-size: 2em;
+}
+
+.header .logo {
+    height: 4em;
+    display: block;
+}
 
 /* ------------------------------------
               Navigation
 ------------------------------------ */
+.navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    
+    height: 4em;
+    background-color: var(--grey01);
+    color: var(--black);
+    
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+/* Align icon with title and styling */
+.navigation a {
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color-opacity);
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.6em;
+}
+
+/* Icon size */
+.navigation a span {
+    font-size: 4em;
+    margin-bottom: 0.05em;
+}
+
+/* Change the color of links on hover */
+.navigation a:hover {
+    color: var(--text-color-dark);
+}
+
+/* Add a color to the active/current link */
+.navigation a.active {
+    color: var(--green);
+}
