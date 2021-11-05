@@ -63,39 +63,61 @@ button {
     min-height: 33px;
     background-color: var(--red);
     padding: 1em;
+    border: none;
+    color: var(--white);
 }
 
 body {
     font-family: "VisitDenmark-Regular", sans-serif;
+    color: var(--blue);
 }
 
+main {
+    padding: 1em;
+    margin: 4em 0;
+}
 
-/*h1, h2, h3, h4, h5, h6 {
-
-}*/
+h1, h2, h3, h4, h5, h6 {
+    font-family: "VisitDenmark-Bold", sans-serif;
+}
 
 h1 {
-    font-size: 26px;
+    font-size: 1.5em;
     line-height: 31px;
+    margin-bottom: 0.5em;
 }
 
 h2 {
     font-size: 22px;
-    line-height: 26px;
 }
 
 p {
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 14px;
+}
+
+.text-centered {
+    text-align: center;
+}
+
+.bold {
+    font-family: "VisitDenmark-Bold", sans-serif;
 }
 
 /* ------------------------------------
                 Header
 ------------------------------------ */
 .header {
-    background-color: var(--grey01);
+    background-color: var(--white);
     display: flex;
     justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    height: 4em;
+    border-bottom: 1px solid rgb(240, 241, 243);
 }
 
 .go-back {
@@ -109,7 +131,7 @@ p {
 }
 
 .header .logo {
-    height: 4em;
+    width: 200px;
     display: block;
 }
 
@@ -124,8 +146,9 @@ p {
     flex-wrap: nowrap;
     
     height: 4em;
-    background-color: var(--grey01);
-    color: var(--black);
+    background-color: var(--white);
+    border-top: 1px solid rgb(240, 241, 243);
+    color: var(--blue);
     
     position: fixed;
     bottom: 0;
@@ -158,4 +181,100 @@ p {
 /* Add a color to the active/current link */
 .navigation a.active {
     color: var(--green);
+}
+
+/* ------------------------------------
+              Create plan
+------------------------------------ */
+/*.create-plan {
+
+}*/
+
+.choose-days, .choose-categories {
+    display: none;
+}
+
+.progress-bar-container {
+    margin: 1em 0;
+}
+
+.progress-bar-titles {
+    display: flex;
+    margin-bottom: 0.25em;
+}
+
+.progress-bar-titles p {
+    width: calc(100% / 3);
+    text-align: center;
+}
+
+.progress-bar{
+    width: 100%;
+    background-color:var(--grey02);
+}
+
+.progress{
+    text-align: right;
+    width: 0%;
+    background-color: var(--blue);
+    transition: width 1s ease-in-out;
+    height: 1em;
+}
+
+
+.choose-city input {
+    border: 1px solid rgb(240, 241, 243);
+    padding: 0.75em;
+    width: calc(100% - 1.5em - 2px);
+    margin-bottom: 1em;
+}
+
+.city-list  {
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 1em 1em; 
+}
+
+.city-list .city {
+    display: flex;
+    background-color: var(--grey02);
+}
+
+.city-list .city img {
+    display: block;
+    width: 120px;
+    height: 120px;
+}
+
+.city-list .city div {
+    padding: 0.5em;
+}
+
+.city-list .city h3 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.25em;
+    font-size: 1.1em;
+}
+
+.city-list .city p {
+    font-size: 12px;
+}
+
+.choose-day-container {
+    padding: 10px 0;
+}
+
+.choose-day-container input {
+    margin: 0.5em 0;
+    width: 50%;
+    border: 1px solid var(--grey02);
+    padding: 0.25em;
+    color: var(--blue);
+    display: block;
+}
+
+.choose-day-btn{
+    background-color: var(--grey02);
+    margin: 1em 0;
 }

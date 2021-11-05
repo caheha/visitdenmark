@@ -1,6 +1,7 @@
 // Views
 import ErrorPage from './views/ErrorPage.js';
 import Home from './views/Home.js';
+import CreatePlan from './views/CreatePlan.js';
 import NewPage from './views/Page.js';
 
 // Routes
@@ -9,6 +10,11 @@ const routes = [
         path: '#/',
         view: Home,
         title: 'Forside'
+    },
+    {
+        path: '#/createplan',
+        view: CreatePlan,
+        title: 'Opret tid'
     },
     {
         path: '#/newpage',
@@ -36,7 +42,7 @@ function render(data) {
 
 // Global navigation
 window.navigateTo = (path, data) => {
-    window.history. pushState(null, null, path);
+    window.history.pushState(null, null, path);
     render(data);
 }
 

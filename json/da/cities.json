@@ -1,0 +1,22 @@
+[
+    {
+        "name": "København",
+        "description": "Den danske hovedstad byder på spændende arkitektur, grønne oaser, et væld af kulturoplevelser, og noget af det bedste gourmetmad.",
+        "img": "https://www.visitdenmark.dk/sites/visitdenmark.com/files/styles/tile_small/public/2020-05/Nyhavn_photo_christian-moller.jpg?h=6a2d0933&itok=OTP1vNUY"
+    },
+    {
+        "name": "Aarhus",
+        "description": "Med sine charmerende stræder, lækre caféer og kulturelle oplevelser er Aarhus en af Danmarks hyggeligste storbyer. ",
+        "img": "https://www.visitdenmark.dk/sites/visitdenmark.com/files/styles/tile_small/public/2019-09/aarhus_photo_robin_skjoldborg_10.jpg?h=98c7bbf1&itok=yCQ4udhI"
+    },
+    {
+        "name": "Odense",
+        "description": "Her finder du gode shoppingmuligheder i hyggelige gågader, flotte grønne områder og en fortryllende eventyrpark.",
+        "img": "https://www.visitdenmark.dk/sites/visitdenmark.com/files/styles/tile_small/public/2019-10/Odense-Old-Quarter-Christmas_visitodense.jpg?h=8abcec71&itok=Qz6oJ3gN"
+    },
+    {
+        "name": "Aalborg",
+        "description": "Gå på opdagelse i byens historiske gader, og mærk det moderne byliv langs havnefronten",
+        "img": "https://www.visitdenmark.dk/sites/visitdenmark.com/files/styles/tile_small/public/2020-09/Utzon_Rasmus%20Hjortsh%C3%B8j.jpg?h=36c6c889&itok=f9rsNo5u"
+    }
+]
