@@ -7,8 +7,8 @@ export default function Home() {
         ${Header()}
 
         <main>
-        ${Link('#/createplan', /*html*/ `<button>Planlæg din tur</button>`)}
-        ${Link('#/search', /*html*/ `<button>Gennemsøg alle aktiviteter</button>`)}
+            ${Link('#/createplan', /*html*/ `<button>Planlæg din tur</button>`)}
+            ${Link('#/explore', /*html*/ `<button>Gennemsøg alle aktiviteter</button>`)}
         </main>
 
         ${Navigation()}

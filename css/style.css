@@ -49,6 +49,7 @@
     --grey02: #CED2D3;
     --black: #000000;
     --white: #FFFFFF;
+    --green: #A3EABF;
     --border-size: 2px;
     --border-margin: 4px;
 }
@@ -88,7 +89,7 @@ h1 {
 }
 
 h2 {
-    font-size: 22px;
+    font-size: 1.2em;
 }
 
 p {
@@ -104,11 +105,33 @@ p {
 }
 
 /* ------------------------------------
+              Error page
+------------------------------------ */
+.error-page img {
+    width: 80%;
+    display: block;
+    margin: 2em auto;
+}
+
+.error-page .error-h2, .error-page h1 {
+    width: 80%;
+    margin: 1em auto;
+}
+
+.error-page .error-btn {
+    display: flex; 
+    align-items: center;
+    margin: 0 auto;
+    text-transform: uppercase;
+    padding: 1em 2.5em 1em 2em; 
+}
+
+/* ------------------------------------
                 Header
 ------------------------------------ */
 .header {
     background-color: var(--white);
-    display: flex;
+    display: flex; 
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -227,6 +250,7 @@ p {
     padding: 0.75em;
     width: calc(100% - 1.5em - 2px);
     margin-bottom: 1em;
+    outline: none;
 }
 
 .city-list  {
@@ -277,4 +301,212 @@ p {
 .choose-day-btn{
     background-color: var(--grey02);
     margin: 1em 0;
+    transition: background-color 0.2s ease-in-out;
+}
+
+
+
+
+
+
+.choose-categories section {
+    margin: 0.5em 0 2em;
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr;
+    gap: 0.5em 0.5em; 
+}
+
+.activities-wrapper section {
+    margin: 0.5em 0 2em;
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr;
+    gap: 0.5em 0.5em; 
+}
+
+.category, .activity {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.category img, .activity img {
+    height: 100%;
+}
+
+.category div, .activity div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    font-family: "VisitDenmark-Bold", sans-serif;
+
+    display: flex;
+    align-items: flex-end;
+    color: var(--white);
+    padding: 0.5em;
+    font-size: 0.8em;
+    margin: var(--border-margin);
+    border: var(--border-size) var(--white) solid;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%);
+}
+
+
+.pick-activities-btn {
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    bottom: 6em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+
+/* ------------------------------------
+                Explore
+------------------------------------ */
+.explore-section::before {
+    content: '';
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    width: 2.25em;
+    height: 4px;
+    background-color: var(--red);
+}
+
+.explore-section {
+    position: relative;
+    padding-top: 0.5em;
+    margin-bottom: 3em;
+}
+
+.explore-section > img {
+    width: 100%;
+}
+
+.explore-section:last-child {
+    margin-bottom: 0;
+}
+
+.explore-section h2 {
+    font-size: 1.4em;
+}
+
+.explore-section p {
+    margin: 0.75em 0 1em;
+}
+
+
+.explore-section .grid {
+    margin: 0.5em 0 0;
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr;
+    gap: 0.5em 0.5em; 
+}
+
+.explore-section .grid img {
+    width: 100%;
+}
+
+.explore-section .slider {
+    margin: 0.5em 0 0;
+    display: flex;
+    overflow-x: scroll;
+}
+
+.explore-section .slider::-webkit-scrollbar {
+    display: none;
+}
+
+.explore-section .slider .category {
+    width: 140px;
+    margin-right: 0.5em;
+    overflow: visible;
+}
+
+.explore-section .slider .category img {
+    width: 140px;
+}
+
+.explore-section .slider .category:last-child {
+    margin-right: 0;
+}
+
+
+.intro {
+    margin-bottom: 3em;
+}
+
+.intro div {
+    position: relative;
+}
+
+.intro img {
+    width: 100%;
+    display: block;
+}
+
+.intro h1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: var(--white);
+    padding: 0.5em;
+    margin: var(--border-margin);
+    border: var(--border-size) var(--white) solid;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%);
+}
+
+.intro p {
+    margin: 1em 0;
+}
+
+
+
+
+
+/* ------------------------------------
+               Categories
+------------------------------------ */
+.categories-wrapper .category {
+    aspect-ratio: 1.8;
+    margin-bottom: 1em;
+}
+
+.categories-wrapper .category:last-child {
+    margin-bottom: 0;
+}
+
+.subcategories-wrapper {
+    margin: 0.5em 0 0;
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr;
+    gap: 0.5em 0.5em; 
+}
+
+
+.activities-wrapper .category {
+    aspect-ratio: 1.8;
+    margin-bottom: 1em;
 }

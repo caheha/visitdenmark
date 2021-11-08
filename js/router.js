@@ -2,6 +2,9 @@
 import ErrorPage from './views/ErrorPage.js';
 import Home from './views/Home.js';
 import CreatePlan from './views/CreatePlan.js';
+import Explore from './views/Explore.js';
+import Aarhus from './views/Aarhus.js';
+import Categories from './views/Categories.js';
 import NewPage from './views/Page.js';
 
 // Routes
@@ -15,6 +18,21 @@ const routes = [
         path: '#/createplan',
         view: CreatePlan,
         title: 'Opret tid'
+    },
+    {
+        path: '#/explore',
+        view: Explore,
+        title: 'Udforsk Danmark'
+    },
+    {
+        path: '#/aarhus',
+        view: Aarhus,
+        title: 'Aarhus'
+    },
+    {
+        path: '#/kategorier',
+        view: Categories,
+        title: 'Kategorier'
     },
     {
         path: '#/newpage',
@@ -44,6 +62,7 @@ function render(data) {
 window.navigateTo = (path, data) => {
     window.history.pushState(null, null, path);
     render(data);
+    window.scrollTo( {top: 0});
 }
 
 // History 
