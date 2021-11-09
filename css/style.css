@@ -94,6 +94,7 @@ h2 {
 
 p {
     font-size: 14px;
+    line-height: 18px;
 }
 
 .text-centered {
@@ -102,6 +103,10 @@ p {
 
 .bold {
     font-family: "VisitDenmark-Bold", sans-serif;
+}
+
+.intro .yellow {
+    border: var(--border-size) #FFE882 solid;
 }
 
 /* ------------------------------------

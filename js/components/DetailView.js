@@ -3,14 +3,28 @@ import { data } from '../router.js';
 export default function DetailView(activityId) {
 
     let activity = data.activities.find(activity => activity.Id == activityId);
+
+    console.log(activity);
     
+    let img = activity.Files.length > 0 ? `<img src="${activity.Files[0].Uri}" alt="${activity.Name}">` : `<img src="/img/aarhus.png" alt="Aarhus">`;
+
+    let descriptionText = activity.Descriptions.length == 6 ? activity.Descriptions[5].Text : activity.Descriptions[0].Text;
+
+    let address = /*html*/ `
+        <address>
+            ${activity.Address.AddressLine1}<br>
+            ${activity.Address.PostalCode}, ${activity.Address.City}
+        </address>
+    `;
+
     return /*html*/`
         <section class="intro">
             <div>
-                <img src="${activity.Files[0].Uri}" alt="Aarhus">
-                <h1>${activity.Name}</h1>
+                ${img}
+                <h1 class="yellow">${activity.Name}</h1>
             </div>
-            <p>Befinder du dig i Aarhusregionen, bliver du mødt af en god kombination af store skove, kyster med fine strande og travle og spændende byer såsom Ebeltoft og Grenaa. Med et væld af kulturoplevelser og lækre caféer og restauranter er Aarhus et godt udgangspunkt for at udforske dette område.</p>
+            <p>${descriptionText}</p>
+            ${address}
         </section>
     `;
 }

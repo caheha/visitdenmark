@@ -102,17 +102,22 @@ export default function Categories() {
         
         let activities = data.activities.filter(activity => activity.Category.Id == categoryId);
         
-
-        let html = "";
-        for (const activity of activities) {
-            html += /*html*/`
-                <article class="category" onclick="detailViewActivity(${activity.Id}, '${currentCategory.Name}')">
-                    <img src="${activity.Files[0].Uri}" alt="${activity.Name}">
-                    <div>${activity.Name}</div> 
-                </article>
-            `;
+        if (activities.length > 0) {
+            let html = "";
+            for (const activity of activities) {
+                console.log(activity)
+                let img = activity.Files.length > 0 ? `<img src="${activity.Files[0].Uri}" alt="${activity.Name}">` : `<img src="/img/aarhus.png" alt="Aarhus">`;
+                html += /*html*/`
+                    <article class="category" onclick="detailViewActivity(${activity.Id}, '${currentCategory.Name}')">
+                        ${img}
+                        <div>${activity.Name}</div> 
+                    </article>
+                `;
+            }
+            document.querySelector('.activities-wrapper').innerHTML = html;
+        } else {
+            document.querySelector('.activities-wrapper').innerHTML = "Ingen resultater";
         }
-        document.querySelector('.activities-wrapper').innerHTML = html;
     }
 
     window.goBackToSubCategories = (categoryName) => {       
