@@ -1,12 +1,17 @@
+// Import components
 import Header from '../components/Header.js';
 import Navigation from '../components/Navigation.js';
 
+// Import data
 import { data } from '../router.js';
 
+// Export create plan view
 export default function CreatePlan() {
 
+    // Store cities
     let _cities = [];
 
+    // Store current choices
     let choices = {
         city: '',
         startDate: '',
@@ -14,25 +19,26 @@ export default function CreatePlan() {
         categories: []
     }
 
+    // Fetch cities
     async function fetchCities() {
         const url = "/json/da/cities.json";
         let response = await fetch(url);
         let data = await response.json();
         _cities = data;
         document.querySelector('.progress').style.width = "calc(100% / 3)";
+        // Update go back arrow
         document.querySelector('.go-back').onclick = (event) => {
             event.preventDefault();
             window.navigateTo('#/');
         }
         appendCities(_cities);
-        setMinDate();
     }
 
     fetchCities()
 
+    // Append cities to view, update DOM
     function appendCities(cities) {
         const container = document.querySelector('.city-list');
-
         let html = "";
         for (const city of cities) {
             html += /*html*/`
@@ -48,24 +54,20 @@ export default function CreatePlan() {
         container.innerHTML = html;
     }
 
+    // Search for cities, update DOM with results
     window.searchCities = (searchValue) => {
-        
         searchValue = searchValue.toLowerCase();
-
         let results = [];
-
         for (const city of _cities) {
             let name = city.name.toLowerCase();
             if (name.includes(searchValue)) {
                 results.push(city);
             }
         }
-
         appendCities(results);
     }
 
-
-
+    // Onclick event for returning to start of flow
     window.goBackToStart = () => {       
         document.querySelector('.create-plan h1').innerHTML = "Hvor skal du hen?";
         document.querySelector('.choose-days').style.display = "none";
@@ -73,16 +75,16 @@ export default function CreatePlan() {
         document.querySelector('.progress').style.width = "calc(100% / 3)";
         document.querySelector('.progress-bar-titles p:nth-child(2)').classList.remove('bold');
         document.querySelector('.progress-bar-titles p:first-child').classList.add('bold');
+        // Update go back arrow
         document.querySelector('.go-back').onclick = (event) => {
             event.preventDefault();
             window.navigateTo('#/');
         }
     }
 
-
+    // Onclick event for when a city is chosen, update DOM
     window.chooseCity = (city) => {
         choices.city = city;
-        
         document.querySelector('.create-plan h1').innerHTML = "Hvornår skal du afsted?";
         document.querySelector('.choose-city').style.display = "none";
         document.querySelector('.choose-days').style.display = "block";
@@ -90,16 +92,15 @@ export default function CreatePlan() {
         document.querySelector('.progress-bar-titles p:first-child').classList.remove('bold');
         document.querySelector('.progress-bar-titles p:last-child').classList.remove('bold');
         document.querySelector('.progress-bar-titles p:nth-child(2)').classList.add('bold');
+        // Update go back arrow
         document.querySelector('.go-back').onclick = (event) => {
             event.preventDefault();
             goBackToStart();
         }
-
-        console.log(choices);
     }
 
 
-
+    // Return current date
     window.setMinDate = () => {
         let today = new Date();
         let dd = today.getDate();
@@ -111,31 +112,36 @@ export default function CreatePlan() {
         mm = mm < 10 ? '0' + mm : mm;
 
         today = yyyy + '-' + mm + '-' + dd;
-        console.log(today);
         return today;
     }
 
+    // Bools to check if date range has changed
     let startChanged = false;
     let endChanged = false
 
+    // Event for start date changing, update bool
     window.startDateChanged = (date) => {
         document.getElementById('enddate').setAttribute('min', date);
         startChanged = true;
         updateButton();
     }
 
+    // Event for end date changing, update bool
     window.endDateChanged = (date) => {
         document.getElementById('startdate').setAttribute('max', date);
         endChanged = true;
         updateButton();
     }
 
+    // If user tries to proceed, tell them to fill in dates
     window.missingDates = () => {
         document.querySelector('.error-text').innerHTML = "Du skal udfylde datoerne før du kan gå videre";
     }
 
+    // Update proceed button if date range has been set
     function updateButton() {
         if (startChanged && endChanged) {
+            // Update go back arrow
             document.querySelector('.choose-days button').onclick = (event) => {
                 event.preventDefault();
                 chooseDays();
@@ -146,6 +152,7 @@ export default function CreatePlan() {
         }
     }
 
+    // Update DOM when date range has been chosen
     window.chooseDays = () => {
         choices.startDate = document.getElementById('startdate').value
         choices.endDate = document.getElementById('enddate').value;
@@ -156,16 +163,16 @@ export default function CreatePlan() {
         document.querySelector('.progress').style.width = "calc(100% / 3 * 3)";
         document.querySelector('.progress-bar-titles p:nth-child(2)').classList.remove('bold');
         document.querySelector('.progress-bar-titles p:last-child').classList.add('bold');
+        // Update go back arrow
         document.querySelector('.go-back').onclick = (event) => {
             event.preventDefault();
             chooseCity(choices.city);
             document.querySelector('.choose-categories').style.display = "none";
             document.querySelector('.progress-bar-titles p:last-child').classList.remove('bold');
         }
-
-        console.log(choices);
     }
 
+    // Append subcategories to view
     window.appendCategories = () => {
         let attractionsHTML = "";
         for (const category of data.categories[0].Children) {
@@ -192,6 +199,7 @@ export default function CreatePlan() {
         document.querySelector('.food-and-drinks-list').innerHTML = foodAndDrinksHTML;
     }
 
+    // Return HTML for categories
     function getCategoryHTML(category) {
         return /*html*/`
             <article class="category" id="id-${category.Id}" onclick="addRemoveCategory(${category.Id})">
@@ -201,7 +209,7 @@ export default function CreatePlan() {
         `;
     }
 
-
+    // Add/remove category from choices, update DOM
     window.addRemoveCategory = (id) => {
         let container = document.querySelector(`#id-${id} div`);
 
@@ -222,7 +230,7 @@ export default function CreatePlan() {
         }
     }
 
-
+    // Onclick event for when subcategories have been selected, update DOM
     window.chooseCategories = () => {        
         document.querySelector('.create-plan h1').innerHTML = `Aktiviteter i ${choices.city}`;
         document.querySelector('.choose-categories').style.display = "none";
@@ -235,18 +243,17 @@ export default function CreatePlan() {
             document.querySelector('.choose-activities').style.display = "none";
         }
         window.scrollTo( {top: 0} )
-        /*
+
+        // Since we only have data for Aarhus, only append the data if Aarhus has been selected
         if (choices.city == "Aarhus") {
             appendActivities(choices.categories);
         } else {
             document.querySelector('.activities-wrapper').innerHTML = `Der er ingen aktiviteter for ${choices.city}`;
-        }*/
-
+        }
         appendActivities(choices.categories);
-        
-        console.log(choices);
     }
 
+    // Append activities within selected subcategories
     function appendActivities(categoryIDs) {
         let html = "";
         let activities = [];
@@ -274,9 +281,9 @@ export default function CreatePlan() {
         document.querySelector('.activities-wrapper').innerHTML = html;
     }
 
+    // Return HTML for one supcategory
     function getActivityHTML(activities) {
         let html = "";
-
         for (const activity of activities) {
             html += /*html*/`
                 <article class="activity">
@@ -285,13 +292,12 @@ export default function CreatePlan() {
                 </article>
             `;
         }
-
         return html;
     }
 
+    // Return view HTML
     return /*html*/ `
         ${Header( {backBtn: true} )}
-
         <main>
             <section class="create-plan">
                 <h1 class="text-centered">Hvor skal du hen?</h1>

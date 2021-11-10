@@ -1,4 +1,4 @@
-import Header from '../components/Header.js';
+// Import components
 import Navigation from '../components/Navigation.js';
 import Link from '../utils/Link.js';
 

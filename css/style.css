@@ -54,11 +54,6 @@
     --border-margin: 4px;
 }
 
-/*
-    border: var(--border-size) var(--red) solid;
-    margin: var(--border-margin);
-*/
-
 button {
     min-width: 100px;
     min-height: 33px;
@@ -107,6 +102,23 @@ p {
 
 .intro .yellow {
     border: var(--border-size) #FFE882 solid;
+}
+
+.category.frontpage {
+    aspect-ratio: 1.5;
+    margin-bottom: 1em;
+}
+
+.category.frontpage p {
+    font-size: 2.25em;
+    line-height: unset;
+    text-transform: uppercase;
+    margin: 0.15em;
+}
+
+.category.frontpage p b {
+    font-family: "VisitDenmark-Regular-Outline", sans-serif;
+    font-weight: 300;
 }
 
 /* ------------------------------------
@@ -172,12 +184,10 @@ p {
     justify-content: space-around;
     align-items: center;
     flex-wrap: nowrap;
-    
     height: 4em;
     background-color: var(--white);
     border-top: 1px solid rgb(240, 241, 243);
     color: var(--blue);
-    
     position: fixed;
     bottom: 0;
     left: 0;
@@ -214,10 +224,6 @@ p {
 /* ------------------------------------
               Create plan
 ------------------------------------ */
-/*.create-plan {
-
-}*/
-
 .choose-days, .choose-categories {
     display: none;
 }
@@ -248,7 +254,6 @@ p {
     transition: width 1s ease-in-out;
     height: 1em;
 }
-
 
 .choose-city input {
     border: 1px solid rgb(240, 241, 243);
@@ -309,11 +314,6 @@ p {
     transition: background-color 0.2s ease-in-out;
 }
 
-
-
-
-
-
 .choose-categories section {
     margin: 0.5em 0 2em;
     display: grid; 
@@ -344,15 +344,14 @@ p {
     height: 100%;
 }
 
+/* White border on image */
 .category div, .activity div {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-
     font-family: "VisitDenmark-Bold", sans-serif;
-
     display: flex;
     align-items: flex-end;
     color: var(--white);
@@ -363,24 +362,20 @@ p {
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%);
 }
 
-
 .pick-activities-btn {
     display: none;
     justify-content: center;
     align-items: center;
-
     position: fixed;
     bottom: 6em;
     left: 50%;
     transform: translateX(-50%);
 }
 
-
-
-
 /* ------------------------------------
                 Explore
 ------------------------------------ */
+/* Red line above title */
 .explore-section::before {
     content: '';
     top: 0;
@@ -413,7 +408,6 @@ p {
 .explore-section p {
     margin: 0.75em 0 1em;
 }
-
 
 .explore-section .grid {
     margin: 0.5em 0 0;
@@ -451,7 +445,6 @@ p {
     margin-right: 0;
 }
 
-
 .intro {
     margin-bottom: 3em;
 }
@@ -465,13 +458,13 @@ p {
     display: block;
 }
 
+/* Border on image */
 .intro h1 {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -485,10 +478,6 @@ p {
 .intro p {
     margin: 1em 0;
 }
-
-
-
-
 
 /* ------------------------------------
                Categories
@@ -509,7 +498,6 @@ p {
     grid-template-rows: 1fr;
     gap: 0.5em 0.5em; 
 }
-
 
 .activities-wrapper .category {
     aspect-ratio: 1.8;

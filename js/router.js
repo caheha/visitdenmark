@@ -5,7 +5,6 @@ import CreatePlan from './views/CreatePlan.js';
 import Explore from './views/Explore.js';
 import Aarhus from './views/Aarhus.js';
 import Categories from './views/Categories.js';
-import NewPage from './views/Page.js';
 
 // Routes
 const routes = [
@@ -33,11 +32,6 @@ const routes = [
         path: '#/kategorier',
         view: Categories,
         title: 'Kategorier'
-    },
-    {
-        path: '#/newpage',
-        view: NewPage,
-        title: 'NewPage'
     }
 ]
 
@@ -71,7 +65,6 @@ window.onpopstate = () => render();
 // First load
 window.onload = () => render();
 
-
 // JSON files
 const categoriesURL = "./json/da/categories.json";
 const activitiesURL = "./json/da/data.json";
@@ -88,9 +81,3 @@ async function fetchJSON(url) {
     let data = await response.json();
     return data;
 }
-
-// Log data
-console.log(data);
-
-// Special icons
-//let icon = '\u2126 \u007C \u2039 \u00A1 \u00B1';

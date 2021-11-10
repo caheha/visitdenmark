@@ -1,7 +1,10 @@
+// Import components
 import Navigation from '../components/Navigation.js';
 import Link from '../utils/Link.js';
 
+// Export Aarhus view
 export default function Aarhus() {
+    // Return view HTML
     return /*html*/ `
         <header class="header">
             <a class="go-back" onclick="event.preventDefault(); window.navigateTo('#/explore');">

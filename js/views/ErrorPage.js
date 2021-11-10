@@ -1,8 +1,11 @@
+// Import components
 import Header from '../components/Header.js';
 import Navigation from '../components/Navigation.js';
 import Link from '../utils/Link.js';
 
+// Export ErrorPage view
 export default function ErrorPage() {
+    // Return view HTML
     return /*html*/ `
         ${Header( {backBtn: true} )}
 

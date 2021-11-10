@@ -1,15 +1,15 @@
+// Import utilities
 import Link from '../utils/Link.js'
 
-export default function Nav(active){
+// Export component
+export default function Nav() {
+
+    // Return component HTML
     return /*html*/ `
         <nav class="navigation">
-
             ${Link('#/', /*html*/ `<span class="material-icons">home</span>Hjem`)}
-
-            ${Link('#/search', /*html*/ `<span class="material-icons">search</span>Søg`)}
-
-            ${Link('#/calendar', /*html*/ `<span class="material-icons">edit_calendar</span>Kalender`)}
-
+            ${Link('#/explore', /*html*/ `<span class="material-icons">search</span>Søg`)}
+            ${Link('#/createplan', /*html*/ `<span class="material-icons">edit_calendar</span>Planlæg tur`)}
         </nav>
     `;
 }
